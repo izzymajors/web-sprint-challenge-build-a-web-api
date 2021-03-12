@@ -13,11 +13,25 @@ I need this code, but don't know where, perhaps should make some middleware, don
 Go code!
 */
 
-require('dotenv.config')
-const server = require('./api/server.js');
 
+require('dotenv').config()
+console.log('Jonathan rules')
+const express = require('express')
+const server = express()
 
+server.use(express.json())
 
-server.listen(8000, () => {
-  console.log('\n* Server Running on http://localhost:8000 *\n');
+if (process.env.NODE_ENV === 'development') {
+  const cors = require('cors')
+  server.use(cors())
+  }
+
+server.use('*', (req, res) => {
+  res.send('<h1> successful launch </h1>')
+})
+
+const PORT = process.env.PORT || 4000
+
+server.listen(PORT, () => {
+  console.log(`listening on ${PORT}`);
 });
