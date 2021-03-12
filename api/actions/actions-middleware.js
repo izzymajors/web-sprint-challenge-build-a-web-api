@@ -1,6 +1,8 @@
 const Actions = require('./actions-model');
 
 const checkId = async (req, res, next) => {
+
+    console.log('check id working')
     try{
         const action = await Actions.findById(req.params.id);
         if (!action) {

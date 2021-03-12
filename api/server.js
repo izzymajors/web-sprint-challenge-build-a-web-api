@@ -19,6 +19,7 @@ server.use((req, res, next ) => {
 // Do NOT `server.listen()` inside this file!
 
 server.use("./api/project", projectRouter);
+
 server.use("./api/actions", actionRouter);
 
 server.get('/', (req, res) => {

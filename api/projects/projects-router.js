@@ -3,7 +3,7 @@ const express = require('express');
 const { checkId, validateAction } = require('../actions/actions-middleware');
 
 
-
+const Actions = require('../actions/actions-model')
 const Projects = require('./projects-model')
 
 
@@ -45,5 +45,12 @@ router.delete("/:id", checkId, (req,res,next) => {
     .catch(next);
 })
 
-router.get("/:id/actions")
+router.get("/:id/actions") => {
+    Actions.find(req.query) 
+    .then(action => {
+        res.status(200).json(action)
+    })
+    .catch(next);
+})
+
 
