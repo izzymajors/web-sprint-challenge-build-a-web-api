@@ -13,13 +13,16 @@ I need this code, but don't know where, perhaps should make some middleware, don
 Go code!
 */
 
-
+const path = require('path')
 require('dotenv').config()
 console.log('Jonathan rules')
 const express = require('express')
 const server = express()
 
 server.use(express.json())
+server.use(express.static(path.join(__dirname)))
+
+
 
 if (process.env.NODE_ENV === 'development') {
   const cors = require('cors')

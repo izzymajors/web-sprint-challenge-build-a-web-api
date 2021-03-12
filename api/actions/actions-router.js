@@ -6,7 +6,7 @@ const Actions = require('./actions-model');
 
 const router = express.Router();
 
-router.get('/api/actions',(req, res, next) =>{
+router.get('/',(req, res, next) =>{
     Actions.find(req.query)
     .then(actions => {
         res.status(200).json(actions)
@@ -14,12 +14,12 @@ router.get('/api/actions',(req, res, next) =>{
     .catch(next);
 })
 
-router.get('/api/actions/:id', checkId, (req, res) => {
+router.get('/:id', checkId, (req, res) => {
     res.json(req.action);
 })
 
 
-router.post('/api/actions', validateAction, (req, res, next) => {
+router.post('/', validateAction, (req, res, next) => {
     Actions.add(req.body)
     .then(action => {
         res.status(201).json(action);
@@ -35,7 +35,7 @@ router.put('/:id', checkId, (req, res, next) => {
     .catch(next);
 });
 
-router.delete('/api/actions/:id', checkId, (req, res, next) => {
+router.delete('/:id', checkId, (req, res, next) => {
     Actions.remove(req.params.id)
     .then(() => {
         res.status(200).json({message: 'action was nuked'})

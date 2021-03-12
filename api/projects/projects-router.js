@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
     .catch(next);
 })
 
-router.get('/projects/:id',checkId,(req, res) => {
+router.get('/:id',checkId,(req, res) => {
     res.json(req.projects);
 });
 
@@ -29,7 +29,7 @@ router.post('/', validateAction, (req, res, next) => {
     .catch(next);
 });
 
-router.put('/projects/:id', checkId, (req, res, next) => {
+router.put('/:id', checkId, (req, res, next) => {
     Projects.update(req.params.id, req.body)
     .then(project => {
         res.status(200).json(project);
@@ -37,7 +37,7 @@ router.put('/projects/:id', checkId, (req, res, next) => {
     .catch(next);
 })
 
-router.delete("/projects/:id", checkId, (req,res,next) => {
+router.delete("/:id", checkId, (req,res,next) => {
     Projects.remove(req.params.id)
     .then(() => {
         res.status(200).json({ message: 'The project was nuked'})
@@ -45,4 +45,5 @@ router.delete("/projects/:id", checkId, (req,res,next) => {
     .catch(next);
 })
 
+router.get("/:id/actions")
 

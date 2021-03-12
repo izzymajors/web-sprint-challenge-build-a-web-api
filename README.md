@@ -140,7 +140,21 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+
+Faster Server side development. Express.js provides many commonly used features of Node.js in the form of functions that can be readily used anywhere in the program
+
 1. Understand and explain the use of Middleware.
+
+Typically all middlewares in nodejs/expressjs have access to request, response and next objects. A request is something that’s coming from a browser that invokes a particular function to perform certain tasks and return a response.
+
 1. The basic principles of the REST architectural style.
+
+REST Architectural Constraints. REST stands for Representational State Transfer, a term coined by Roy Fielding in 2000. It is an architecture style for designing loosely coupled applications over HTTP, that is often used in the development of web services.
+
 1. Understand and explain the use of Express Routers.
+
+Router class to create modular, mountable route handlers. A Router instance is a complete middleware and routing system
+
 1. Describe tooling used to manually test the correctness of an API.
+
+API testing is conducted at the message layer as there is an absence of GUI. Before you start API testing, you need to set up the test environment with a set of parameters. Configure the database and server as per the requirement. 
